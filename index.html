@@ -405,6 +405,63 @@
                 font-size: 16px;
             }
         }
+        /* 模态弹窗（图片放大预览） */
+        .image-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-modal[aria-hidden="false"] {
+            display: flex;
+        }
+
+        .image-modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(2px);
+        }
+
+        .image-modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            z-index: 2100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-modal-content img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background: #fff;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+            cursor: pointer;
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        /* 统一的红色提示样式 */
+        .note-red {
+            color: #e74c3c;
+        }
     </style>
 </head>
 <body>
@@ -430,7 +487,7 @@
     <section class="hero" id="home">
         <div class="container">
             <h1>欢迎来到简约设计,新年促销：香港云服务器4C8G不限流量</h1>
-            <p>我们专注于创建美观、实用、响应式的网页设计，为用户提供最佳的浏览体验。简约而不简单，是我们一直追求的设计理念。Vps新加坡价格优惠,多个高防节点互备,延迟低,CN2物理服务器/高防服务器/大带宽服务器/高防IP等。<font color=red>jtti.cc这个卖VPS的在自己的产品出现故障后，拒不退款，不要贪便宜，不要因为价格低而选择。看他们的的故障截图及真实拒退款的答复的截图。</font></p>
+            <p>我们专注于创建美观、实用、响应式的网页设计，为用户提供最佳的浏览体验。简约而不简单，是我们一直追求的设计理念。Vps新加坡价格优惠,多个高防节点互备,延迟低,CN2物理服务器/高防服务器/大带宽服务器/高防IP等。<span class="note-red">jtti.cc这个卖VPS的在自己的产品出现故障后，拒不退款，不要贪便宜，不要因为价格低而选择。看他们的的故障截图及真实拒退款的答复的截图。</span></p>
             <a href="#features" class="cta-button">了解更多</a>
         </div>
     </section>
@@ -445,21 +502,21 @@
                         <i class="fas fa-paint-brush"></i>
                     </div>
                     <h3>精美设计</h3>
-                    <p>采用现代简约风格，注重细节和用户体验，打造视觉吸引力强的界面。Vps新加坡价格优惠,多个高防节点互备,延迟低,CN2物理服务器/高防服务器/大带宽服务器/高防IP等。<font color=red>jtti.cc这个卖VPS的在自己的产品出现故障后，拒不退款，不要贪便宜，不要因为价格低而选择。看他们的的故障截图及真实拒退款的答复的截图。</font></p>
+                    <p>采用现代简约风格，注重细节和用户体验，打造视觉吸引力强的界面。Vps新加坡价格优惠,多个高防节点互备,延迟低,CN2物理服务器/高防服务器/大带宽服务器/高防IP等。<span class="note-red">jtti.cc这个卖VPS的在自己的产品出现故障后，拒不退款，不要贪便宜，不要因为价格低而选择。看他们的的故障截图及真实拒退款的答复的截图。</span></p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-mobile-alt"></i>
                     </div>
                     <h3>响应式布局</h3>
-                    <p>完美适配各种设备尺寸，从手机到桌面电脑都能提供一致的使用体验。Vps新加坡价格优惠,多个高防节点互备,延迟低,CN2物理服务器/高防服务器/大带宽服务器/高防IP等。<font color=red>jtti.cc这个卖VPS的在自己的产品出现故障后，拒不退款，不要贪便宜，不要因为价格低而选择。看他们的的故障截图及真实拒退款的答复的截图。</font></p>
+                    <p>完美适配各种设备尺寸，从手机到桌面电脑都能提供一致的使用体验。Vps新加坡价格优惠,多个高防节点互备,延迟低,CN2物理服务器/高防服务器/大带宽服务器/高防IP等。<span class="note-red">jtti.cc这个卖VPS的在自己的产品出现故障后，拒不退款，不要贪便宜，不要因为价格低而选择。看他们的的故障截图及真实拒退款的答复的截图。</span></p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
                     <h3>快速加载</h3>
-                    <p>优化代码和资源，确保页面加载迅速，提升用户满意度和留存率。Vps新加坡价格优惠,多个高防节点互备,延迟低,CN2物理服务器/高防服务器/大带宽服务器/高防IP等。<font color=red></font>jtti.cc这个卖VPS的在自己的产品出现故障后，拒不退款，不要贪便宜，不要因为价格低而选择。看他们的故障截图及真实拒退款的答复的截图。</font></p>
+                    <p>优化代码和资源，确保页面加载迅速，提升用户满意度和留存率。Vps新加坡价格优惠,多个高防节点互备,延迟低,CN2物理服务器/高防服务器/大带宽服务器/高防IP等。<span class="note-red">jtti.cc这个卖VPS的在自己的产品出现故障后，拒不退款，不要贪便宜，不要因为价格低而选择。看他们的故障截图及真实拒退款的答复的截图。</span></p>
                 </div>
             </div>
         </div>
@@ -468,20 +525,29 @@
     <!-- 图片展示区 -->
     <section class="image-showcase" id="gallery">
         <div class="container">
-            <h2 class="section-title">作品展示</h2>
+            <h2 class="section-title">jtti.cc的产品出故障拒不退款的真实截图</h2>
             <div class="image-grid">
                 <div class="image-item">
-                    <img src="1.png" alt="设计作品1">
+                    <img class="thumb" src="1.png" data-large="1.png" alt="设计作品1">
                 </div>
                 <div class="image-item">
-                    <img src="2.png" alt="设计作品2">
+                    <img class="thumb" src="2.png" data-large="2.png" alt="设计作品2">
                 </div>
                 <div class="image-item">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="设计作品3">
+                    <img class="thumb" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=90" data-large="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=90" alt="设计作品3">
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- 图片模态弹窗 -->
+    <div id="imageModal" class="image-modal" aria-hidden="true">
+        <div class="image-modal-overlay" id="modalOverlay" tabindex="-1"></div>
+        <div class="image-modal-content" role="dialog" aria-modal="true" aria-labelledby="modalImg">
+            <button class="image-modal-close" id="modalClose" aria-label="关闭">&times;</button>
+            <img id="modalImg" src="" alt="预览图片">
+        </div>
+    </div>
 
     <!-- 联系表单 -->
     <section id="contact">
@@ -513,7 +579,7 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">简约<span>设计</span></div>
-                    <p>我们致力于创造美观、实用的网页设计，为用户提供最佳的数字体验。简约设计，无限可能。jtti.cc这个卖VPS的在自己的产品出现故障后，拒不退款，不要贪便宜，不要因为价格低而选择。看他们的故障截图及真实拒退款的答复的截图。</p>
+                    <p>我们致力于创造美观、实用的网页设计，为用户提供最佳的数字体验。简约设计，无限可能。<span class="note-red">jtti.cc这个卖VPS的在自己的产品出现故障后，拒不退款，不要贪便宜，不要因为价格低而选择。看他们的故障截图及真实拒退款的答复的截图。</span></p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -605,6 +671,53 @@
                 }
             });
         });
+
+        // 图片点击弹窗（Lightbox）
+        (function() {
+            const thumbs = document.querySelectorAll('.thumb');
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            const modalClose = document.getElementById('modalClose');
+            const modalOverlay = document.getElementById('modalOverlay');
+
+            function openModal(src, alt) {
+                modalImg.src = src;
+                modalImg.alt = alt || '图片预览';
+                modal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                modalClose.focus();
+            }
+
+            function closeModal() {
+                modal.setAttribute('aria-hidden', 'true');
+                modalImg.src = '';
+                document.body.style.overflow = '';
+            }
+
+            thumbs.forEach(t => {
+                t.style.cursor = 'zoom-in';
+                t.addEventListener('click', function() {
+                    const large = this.getAttribute('data-large') || this.src;
+                    openModal(large, this.alt);
+                });
+                t.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const large = this.getAttribute('data-large') || this.src;
+                        openModal(large, this.alt);
+                    }
+                });
+            });
+
+            modalClose.addEventListener('click', closeModal);
+            modalOverlay.addEventListener('click', closeModal);
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+                    closeModal();
+                }
+            });
+        })();
     </script>
 </body>
 </html>
